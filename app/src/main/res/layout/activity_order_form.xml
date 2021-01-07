@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="157dp"
+        android:layout_marginTop="117dp"
         android:text="Choose what you wish to store:"
         android:textColor="@color/black"
 
@@ -28,9 +28,9 @@
     <Spinner
         android:id="@+id/Spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="160dp"
         android:background="@color/colorAccent"
         android:entries="@array/spinnerlist"
         android:prompt="@string/dress1"></Spinner>
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="408dp"
+        android:layout_marginBottom="448dp"
         android:backgroundTint="@color/colorAccent"
         android:text="Add"
         android:textColor="@color/colorTextIcons" />
