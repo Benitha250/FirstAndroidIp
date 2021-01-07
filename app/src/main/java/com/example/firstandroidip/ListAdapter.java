@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
 
 
 public class ListAdapter extends BaseAdapter {
@@ -84,7 +87,7 @@ public class ListAdapter extends BaseAdapter {
         TextView txtName;
         TextView txtVersion;
         ImageView icon;
-
     }
+
 
 }
