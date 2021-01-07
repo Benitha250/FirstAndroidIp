@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ListDesignActivity extends AppCompatActivity {
 
     int[] images = {R.drawable.dress1, R.drawable.dress2, R.drawable.dress3, R.drawable.dress4, R.drawable.dress5, R.drawable.jumpsuit};
@@ -21,6 +24,9 @@ public class ListDesignActivity extends AppCompatActivity {
     ListView lView;
 
     ListAdapter lAdapter;
+
+    @BindView(R.id.wishlist_button) Button wishlist_button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,13 @@ public class ListDesignActivity extends AppCompatActivity {
             }
         });
 
+        ButterKnife.bind(this);
+        wishlist_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListDesignActivity.this, OrderFormActivity.class);
+            }
+        });
 
 
     }
