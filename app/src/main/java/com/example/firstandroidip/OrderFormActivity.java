@@ -31,7 +31,7 @@ public class OrderFormActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String designName = design_name.getText().toString();
                 Log.d(TAG, designName);
-                Intent intent = new Intent(OrderFormActivity.this, MainActivity.class);
+                Intent intent = new Intent(OrderFormActivity.this, Wishlist.class);
                 intent.putExtra("Details", designName);
                 startActivity(intent);
 

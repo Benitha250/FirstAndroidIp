@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.button) Button button;
-    @BindView(R.id.wishlist_textview) TextView wishlist_textview;
 
 
 
@@ -31,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        String designName = intent.getStringExtra("Details");
-        wishlist_textview.setText("Here are all the restaurants near: " + designName);
+
 
 
     }
