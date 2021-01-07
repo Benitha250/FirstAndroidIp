@@ -52,6 +52,7 @@ public class ListDesignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListDesignActivity.this, OrderFormActivity.class);
+                startActivity(intent);
             }
         });
 
