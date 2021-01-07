@@ -22,6 +22,6 @@ public class Wishlist extends AppCompatActivity {
 
         Intent intent = getIntent();
         String designName = intent.getStringExtra("Details");
-        wishlist_textview.setText("Here are all the restaurants near: " + designName);
+        wishlist_textview.setText(designName);
     }
 }

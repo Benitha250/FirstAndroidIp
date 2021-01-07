@@ -6,42 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".OrderFormActivity">
 
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wishlist form"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="157dp"
+        android:text="Choose what you wish to store:"
         android:textColor="@color/black"
+
         android:textSize="20dp" />
 
-    <EditText
+    <Spinner
+        android:id="@+id/Spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/design_name"
-        android:background="@color/colorTextIcons"
-        android:layout_above="@+id/add_to_wishlist"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
-        android:hint="Enter Zip Code"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:background="@color/colorAccent"
+        android:entries="@array/spinnerlist"
+        android:prompt="@string/dress1"></Spinner>
 
     <Button
+        android:id="@+id/add_to_wishlist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        android:id="@+id/add_to_wishlist"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="408dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Add"
+        android:textColor="@color/colorTextIcons" />
 
 </RelativeLayout>

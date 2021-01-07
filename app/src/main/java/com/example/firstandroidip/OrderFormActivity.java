@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 public class OrderFormActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.add_to_wishlist) Button add_to_wishlist;
-    @BindView(R.id.design_name) EditText design_name;
+    @BindView(R.id.Spinner) Spinner spinner_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class OrderFormActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String designName = design_name.getText().toString();
+                String designName = spinner_text.getSelectedItem().toString();
                 Log.d(TAG, designName);
                 Intent intent = new Intent(OrderFormActivity.this, Wishlist.class);
                 intent.putExtra("Details", designName);

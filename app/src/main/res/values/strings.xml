@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">FirstAndroidIp</string>
+
+    <string name="dress1">wedding dress</string>
+    <string name="dress2">casual dress</string>
+    <string name="dress3">summer dress</string>
+    <string name="dress4">occasional dress</string>
+    <string name="dress5">offshoulder dress</string>
+    <string name="jumpsuit">jumpsuit</string>
+
+    <string-array name="spinnerlist">
+        <item>@string/dress1</item>
+        <item>@string/dress2</item>
+        <item>@string/dress3</item>
+        <item>@string/dress4</item>
+        <item>@string/dress5</item>
+        <item>@string/jumpsuit</item>
+    </string-array>
 </resources>
