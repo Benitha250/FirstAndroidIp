@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="120dp"
     android:background="#FF018786">
 
     <ImageView
         android:id="@+id/appIconIV"
         android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_height="match_parent"
         android:src="@drawable/dress1" />
 
     <TextView
@@ -35,4 +36,14 @@
         android:text="These are dresses for wedding."
         android:textSize="14sp" />
 
+    <Button
+        android:id="@+id/order_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:background="#FF018786"
+        app:backgroundTint="#FFFFFF"
+        android:text="Order"
+        android:textColor="@color/black"/>
 </RelativeLayout>

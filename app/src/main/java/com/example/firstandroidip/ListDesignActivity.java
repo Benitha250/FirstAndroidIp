@@ -2,13 +2,19 @@ package com.example.firstandroidip;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ListDesignActivity extends AppCompatActivity {
+    @BindView(R.id.order_button) Button order_button;
 
     int[] images = {R.drawable.dress1, R.drawable.dress2, R.drawable.dress3, R.drawable.dress4, R.drawable.dress5, R.drawable.jumpsuit};
 
@@ -23,7 +29,9 @@ public class ListDesignActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_design);
+
+        ButterKnife.bind(this);
 
         lView = (ListView) findViewById(R.id.androidList);
 
@@ -39,6 +47,14 @@ public class ListDesignActivity extends AppCompatActivity {
 
             }
         });
+
+        order_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListDesignActivity.this, OrderFormActivity.class);
+            }
+        });
+
 
     }
 }
