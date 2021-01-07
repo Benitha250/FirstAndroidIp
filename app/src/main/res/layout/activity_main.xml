@@ -33,9 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="120dp"
-        android:layout_marginBottom="19dp"
         android:background="#FF018786"
         app:backgroundTint="#FF018786"
         android:text="Design List"
         />
+
 </RelativeLayout>

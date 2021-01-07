@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstAndroidIp">
-        <activity android:name=".OrderFormActivity"></activity>
+        <activity android:name=".Wishlist"></activity>
+        <activity android:name=".OrderFormActivity" />
         <activity android:name=".ListDesignActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

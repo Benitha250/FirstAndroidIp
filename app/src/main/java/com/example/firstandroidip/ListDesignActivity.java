@@ -49,10 +49,12 @@ public class ListDesignActivity extends AppCompatActivity {
         });
 
         ButterKnife.bind(this);
+
         wishlist_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListDesignActivity.this, OrderFormActivity.class);
+                startActivity(intent);
             }
         });
 
