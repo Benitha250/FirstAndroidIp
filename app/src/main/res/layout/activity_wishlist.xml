@@ -7,14 +7,20 @@
     tools:context=".Wishlist"
     android:background="#FF018786">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wishlist 1: "
         android:id="@+id/wishlist_textview"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="140sp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"/>
+        android:background="@color/colorAccent"/>
 
 
 </RelativeLayout>
