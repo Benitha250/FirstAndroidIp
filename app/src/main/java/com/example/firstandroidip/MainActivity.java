@@ -13,6 +13,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.button) Button button;
+    @BindView(R.id.wishlist) Button wishlist;
+
 
 
 
@@ -30,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Wishlist.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
