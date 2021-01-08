@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Wishlist"
-    android:background="#FF018786">
+    android:background="#FF018786"
+    >
 
     <ImageView
         android:id="@+id/imageView"
