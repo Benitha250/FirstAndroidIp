@@ -35,17 +35,34 @@
         android:layout_marginLeft="120dp"
         android:background="#FF018786"
         app:backgroundTint="#FF018786"
-        android:text="Designs"
+        android:text="call me for more"
         />
 
-    <Button
-        android:id="@+id/wishlist"
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="402dp"
+        android:textColor="#FF018786"
+        android:id="@+id/info"/>
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="292dp" />
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="240dp"
-        android:layout_marginBottom="3dp"
-        android:background="#FF018786"
-        android:text="Wishlist"
-        app:backgroundTint="#FF018786" />
+        android:layout_marginBottom="227dp"
+        />
 </RelativeLayout>

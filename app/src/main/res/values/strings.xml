@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">FirstAndroidIp</string>
+    <string name="facebook_app_id">801164974075703</string>
+    <string name="fb_login_protocol_scheme">fb801164974075703</string>
+
 
     <string name="dress1">wedding dress</string>
     <string name="dress2">casual dress</string>
