@@ -26,13 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.button) Button button;
-    @BindView(R.id.info) TextView info;
-    @BindView(R.id.profile) ImageView profile;
-    @BindView(R.id.login) LoginButton login;
-    CallbackManager callbackManager;
-
-
+    @BindView(R.id.home) Button home;
 
 
     @Override
@@ -42,62 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        callbackManager = CallbackManager.Factory.create();
-        login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                info.setText("User id : " + loginResult.getAccessToken().getUserId());
-                String imageURL = "https://graph.facebook.com/" + loginResult.getAccessToken().getUserId() + "/picture?return_ssl_resources=1";
-                Picasso.get().load(imageURL).into(profile);
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-        });
-
-        button.setOnClickListener(new View.OnClickListener() {
+        home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+250780873772"));
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE},1);
-                }
-                else
-                {
-                    startActivity(intent);
-                }
-            }
-        });
-
-        /*button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ListDesignActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
-
-        wishlist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Wishlist.class);
-                startActivity(intent);
-            }
-        });*/
-
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        callbackManager.onActivityResult(requestCode , resultCode , data);
     }
 }

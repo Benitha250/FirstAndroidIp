@@ -3,7 +3,10 @@ package com.example.firstandroidip;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -33,6 +36,7 @@ public class ListDesignActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_design);
 
+
         lView = (ListView) findViewById(R.id.androidList);
 
         lAdapter = new ListAdapter(ListDesignActivity.this, design, description, images);
@@ -43,7 +47,7 @@ public class ListDesignActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Toast.makeText(ListDesignActivity.this, design[i]+" "+description[i], Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListDesignActivity.this, design[i] + " " + description[i], Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -57,7 +61,6 @@ public class ListDesignActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
     }
 }

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF018786"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:text=""
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:backgroundTint="#FF018786" />
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45sp"
+        android:layout_marginTop="200sp"
+        android:fontFamily="cursive"
+        android:text="StyleOn"
+        android:textColor="#FF018786"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="47dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="140dp"
+        android:background="#FF018786"
+        app:backgroundTint="#FF018786"
+        android:text="call me for more"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="402dp"
+        android:textColor="#FF018786"
+        android:id="@+id/info"/>
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="292dp" />
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="227dp"
+        />
+    <Button
+        android:id="@+id/designs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="180dp"
+        android:background="#FF018786"
+        app:backgroundTint="#FF018786"
+        android:text="Designs"
+        android:layout_marginBottom="50dp"
+        />
+
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="307dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="650dp"
+        android:background="#FF018786"
+        android:text="Logout"
+        android:textAllCaps="false"
+        app:backgroundTint="#FF018786" />
+
+</RelativeLayout>
