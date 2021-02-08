@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstAndroidIp">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".RetrievedData"></activity>
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".CreateAccountActivity" />
 
