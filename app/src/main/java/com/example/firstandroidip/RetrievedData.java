@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -35,10 +36,8 @@ public class RetrievedData extends AppCompatActivity {
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     @BindView(R.id.searchEditText) EditText searchEditText;
 
-    ArrayList<Model> arrayList;
-
-    private FirebaseRecyclerOptions<Model> options;
-    private FirebaseRecyclerAdapter<Model, MyViewHolder> adapter;
+    private MyAdapter adapter;
+    private ArrayList<Model> list;
 
     DatabaseReference designsData;
 
@@ -49,85 +48,27 @@ public class RetrievedData extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        new ItemTouchHelper(itemTouchHelper).attachToRecyclerView(recyclerView);
-
-        arrayList = new ArrayList<>();
+/*        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);*/
 
         designsData = FirebaseDatabase.getInstance().getReference().child("design");
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(designsData, Model.class).build();
-        adapter = new FirebaseRecyclerAdapter<Model, MyViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Model model) {
+        list = new ArrayList<>();
+        adapter = new MyAdapter(this,list);
 
-                holder.designTextView.setText("Design: "+model.getDesign());
-                holder.opinionTextView.setText("Opinion: "+model.getOpinion_edit());
-
-            }
-
-            @NonNull
-            @Override
-            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_view_layout, parent, false);
-                return new MyViewHolder(v);
-            }
-        };
-
-        adapter.startListening();
         recyclerView.setAdapter(adapter);
 
-
-
-        searchEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(!s.toString().isEmpty())
-                {
-                    search(s.toString());
-                }
-                else {
-                    search("");
-                }
-
-
-            }
-        });
-    }
-
-    private void search(String s)
-    {
-        Query query = designsData.orderByChild("design").startAt(s).endAt(s + "\uf8ff");
-
-        query.addValueEventListener(new ValueEventListener() {
+        designsData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.hasChildren())
-                {
-                    arrayList.clear();
-                    for (DataSnapshot dss:snapshot.getChildren())
-                    {
-                        final  Model model = dss.getValue(Model.class);
-                        arrayList.add(model);
-                    }
-
-
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Model model = dataSnapshot.getValue(Model.class);
+                    list.add(model);
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -135,21 +76,47 @@ public class RetrievedData extends AppCompatActivity {
 
             }
         });
+
     }
 
-    ItemTouchHelper.SimpleCallback itemTouchHelper= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.UP|ItemTouchHelper.DOWN|ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+/*
+    ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
         @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            int position_draged=viewHolder.getAdapterPosition();
-            int position_target= target.getAdapterPosition();
-            Collections.swap(arrayList,position_draged,position_target);
-            adapter.notifyItemMoved(position_draged,position_target);
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            Toast.makeText(RetrievedData.this, "on Move", Toast.LENGTH_SHORT).show();
             return false;
         }
         @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            arrayList.remove(viewHolder.getAdapterPosition());
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+            Toast.makeText(RetrievedData.this, "on Swiped ", Toast.LENGTH_SHORT).show();
+            //Remove swiped item from list and notify the RecyclerView
+            int position = viewHolder.getAdapterPosition();
+            list.remove(position);
             adapter.notifyDataSetChanged();
         }
-    };
+    };*/
+
+    private void setUpRecyclerView() {
+        FirebaseRecyclerOptions<Model> options =
+                new FirebaseRecyclerOptions.Builder<Model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("design"), Model.class)
+                        .build();
+        adapter = new MyAdapter(options);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                adapter.deleteItem(viewHolder.getAdapterPosition());
+            }
+        }).attachToRecyclerView(recyclerView);
+    }
+
 }
