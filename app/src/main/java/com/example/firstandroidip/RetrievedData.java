@@ -2,6 +2,7 @@ package com.example.firstandroidip;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +48,8 @@ public class RetrievedData extends AppCompatActivity {
         setContentView(R.layout.activity_retrieved_data);
 
         ButterKnife.bind(this);
+
+        new ItemTouchHelper(itemTouchHelper).attachToRecyclerView(recyclerView);
 
         arrayList = new ArrayList<>();
 
@@ -132,4 +136,20 @@ public class RetrievedData extends AppCompatActivity {
             }
         });
     }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelper= new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.UP|ItemTouchHelper.DOWN|ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            int position_draged=viewHolder.getAdapterPosition();
+            int position_target= target.getAdapterPosition();
+            Collections.swap(arrayList,position_draged,position_target);
+            adapter.notifyItemMoved(position_draged,position_target);
+            return false;
+        }
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            arrayList.remove(viewHolder.getAdapterPosition());
+            adapter.notifyDataSetChanged();
+        }
+    };
 }

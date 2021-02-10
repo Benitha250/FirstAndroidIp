@@ -29,7 +29,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     @BindView(R.id.username) EditText username;
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
-    @BindView(R.id.confirmPassword) EditText confirmPassword;
     @BindView(R.id.loginTextView) TextView loginTextView;
 
 

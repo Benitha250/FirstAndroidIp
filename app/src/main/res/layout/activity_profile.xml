@@ -51,7 +51,7 @@
         android:text="call me for more"
         />
 
-
+<!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,17 +59,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="402dp"
         android:textColor="#FF018786"
-        android:id="@+id/info"/>
-
+        android:id="@+id/info"/>-->
+<!--
     <ImageView
         android:id="@+id/profile"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="292dp" />
+        android:layout_marginTop="292dp" />-->
 
-
+<!--
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login"
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="227dp"
-        />
+        />-->
     <Button
         android:id="@+id/designs"
         android:layout_width="wrap_content"

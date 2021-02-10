@@ -33,10 +33,16 @@ public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.logOut) TextView logOut;
     @BindView(R.id.button) Button button;
     @BindView(R.id.designs) Button designs;
-    @BindView(R.id.info) TextView info;
+
+
+/*    @BindView(R.id.info) TextView info;
+
     @BindView(R.id.profile) ImageView profile;
+
     @BindView(R.id.login) LoginButton login;
-    CallbackManager callbackManager;
+
+
+    CallbackManager callbackManager;*/
 
 
     @Override
@@ -62,6 +68,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+
+/*        For Facebook login
+
+
+
         callbackManager = CallbackManager.Factory.create();
         login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -80,7 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
 
             }
-        });
+        });*/
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,10 +116,10 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+/*    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
+    }*/
 }
